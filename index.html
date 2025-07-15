@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英語スピーキングテスト</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Kosugi+Maru&family=Mochiy+Pop+P+One&family=Hina+Mincho&family=Shippori+Mincho&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>英語スピーキングテスト</h1>
+    
+    <!-- カスタムアラート/コンファームモーダル -->
+    <div id="custom-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <p id="modal-message"></p>
+            <div id="modal-buttons">
+                <button id="modal-ok">OK</button>
+                <button id="modal-cancel" style="display:none;">キャンセル</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="setup" class="screen">
+        <img src="top.png" alt="アプリトップ画像" class="top-image">
+        
+        <div class="setting-item">
+            <label for="test-date">検査日:</label>
+            <input type="date" id="test-date">
+        </div>
+        
+        <div class="setting-item">
+            <label for="grade-set">学年とセット:</label>
+            <select id="grade-set">
+                <option value="">選んでください</option>
+                <option value="list03">３年</option>
+                <option value="list04">４年</option>
+                <option value="list05">５年</option>
+                <option value="list06">６年</option>
+            </select>
+        </div>
+        
+        <div class="setting-item">
+            <label for="mode">モード:</label>
+            <select id="mode">
+                <option value="normal">通常モード</option>
+                <option value="random">ランダムモード</option>
+            </select>
+        </div>
+
+        <div class="setting-item">
+            <label for="level">レベル:</label>
+            <select id="level">
+                <option value="normal">ふつう (2秒)</option>
+                <option value="easy">やさしい (3秒)</option>
+                <option value="hard">むずかしい (1秒)</option>
+            </select>
+        </div>
+        
+        <div class="setting-item">
+            <label for="voice-select">音声の種類:</label>
+            <select id="voice-select"></select>
+        </div>
+        
+        <div class="setting-item">
+            <label for="font-select">フォント:</label>
+            <select id="font-select">
+                <option value="sans-serif">ゴシック体 (sans-serif)</option>
+                <option value="'Kosugi Maru', sans-serif">Kosugi Maru</option>
+                <option value="'Mochiy Pop P One', sans-serif">Mochiy Pop P One</option>
+                <option value="'Hina Mincho', serif">Hina Mincho</option>
+                <option value="'Shippori Mincho', serif">Shippori Mincho</option>
+            </select>
+        </div>
+        
+        <div class="setting-item">
+            <label for="color-picker">文字の色:</label>
+            <select id="color-picker">
+                <option value="#333333">黒</option>
+                <option value="#e74c3c">赤</option>
+                <option value="#2980b9">青</option>
+                <option value="#27ae60">緑</option>
+                <option value="#f39c12">オレンジ</option>
+                <option value="#8e44ad">紫</option>
+                <option value="#d35400">茶</option>
+                <option value="#1abc9c">水色</option>
+                <option value="#7f8c8d">グレー</option>
+                <option value="#000000">真っ黒</option>
+            </select>
+        </div>
+        
+        <div class="button-group">
+            <button onclick="startTest()">テスト開始</button>
+            <button onclick="showHistory()">記録を見る</button>
+        </div>
+    </div>
+
+    <div id="quiz" class="screen" style="display:none;">
+        <div id="question-box">
+            <img id="question-image" src="" alt="問題画像" class="question-image">
+            <div id="text-A" class="question-text"></div>
+            <div id="text-B" class="question-text"></div>
+            <div class="button-group">
+                <button onclick="answer(true)">○ 読めた</button>
+                <button onclick="answer(false)">× 読めなかった</button>
+            </div>
+            <progress id="progress-bar" value="0" max="100"></progress>
+            <button onclick="interruptTest()">中断する</button>
+        </div>
+    </div>
+
+    <div id="result" class="screen" style="display:none;">
+        <h2>結果</h2>
+        <p id="score"></p>
+        <p id="missed-list"></p>
+        <div id="current-result-table"></div>
+        <div id="history-table-area"></div>
+        <div class="button-group">
+            <button onclick="saveResult()">記録を保存</button>
+            <button onclick="location.reload()">もう一度</button>
+        </div>
+    </div>
+
+    <div id="history" class="screen" style="display:none;">
+        <h2>過去の記録</h2>
+        <div id="history-list-table"></div>
+        <button onclick="location.reload()">戻る</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
