@@ -1,0 +1,72 @@
+[
+    {
+        "image": "01.png",
+        "A": "Hello.",
+        "B": "How are you?"
+    },
+    {
+        "image": "02.png",
+        "A": "I'm fine, thank you.",
+        "B": "And you?"
+    },
+    {
+        "image": "03.png",
+        "A": "What's your name?",
+        "B": "My name is Alex."
+    },
+    {
+        "image": "04.png",
+        "A": "Nice to meet you.",
+        "B": "Nice to meet you, too."
+    },
+    {
+        "image": "05.png",
+        "A": "Good morning.",
+        "B": "Good afternoon."
+    },
+    {
+        "image": "06.png",
+        "A": "Good evening.",
+        "B": "Good night."
+    },
+    {
+        "image": "07.png",
+        "A": "See you later.",
+        "B": "Bye-bye."
+    },
+    {
+        "image": "08.png",
+        "A": "Thank you.",
+        "B": "You're welcome."
+    },
+    {
+        "image": "09.png",
+        "A": "Excuse me.",
+        "B": "I'm sorry."
+    },
+    {
+        "image": "10.png",
+        "A": "Please.",
+        "B": "Here you are."
+    },
+    {
+        "image": "11.png",
+        "A": "Yes.",
+        "B": "No."
+    },
+    {
+        "image": "12.png",
+        "A": "What is this?",
+        "B": "It's a pen."
+    },
+    {
+        "image": "13.png",
+        "A": "How old are you?",
+        "B": "I'm ten years old."
+    },
+    {
+        "image": "14.png",
+        "A": "Where are you from?",
+        "B": "I'm from Japan."
+    }
+]
