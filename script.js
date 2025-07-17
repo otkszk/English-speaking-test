@@ -18,9 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 音声の選択肢をロード
     loadVoices();
 
-    // フォントの選択肢をロード（HTMLに直接記述済み）
-    // 文字の色の選択肢をロード（HTMLに直接記述済み）
-
     // レベルのデフォルト設定
     document.getElementById('level').value = 'normal'; // ふつうをデフォルトに
 });
@@ -40,6 +37,7 @@ function loadVoices() {
         option.textContent = "音声が利用できません";
         voiceSelect.appendChild(option);
         voiceSelect.disabled = true;
+        console.warn("No English voices available. Please check your browser settings.");
         return;
     }
 
@@ -67,6 +65,7 @@ function loadVoices() {
         }
     }
     voiceSelect.disabled = false;
+    console.log("Voices loaded:", voices.map(v => v.name));
 }
 
 /**
@@ -101,7 +100,15 @@ function showCustomModal(message, isConfirm = false) {
 
 // テスト開始ボタンが押されたときの処理
 async function startTest() {
-    const saved = JSON.parse(localStorage.getItem("englishTestProgress"));
+    let saved = null;
+    try {
+        saved = JSON.parse(localStorage.getItem("englishTestProgress"));
+    } catch (e) {
+        console.error("Error parsing saved progress from localStorage:", e);
+        await showCustomModal("保存された進捗データの読み込み中にエラーが発生しました。新しいテストを開始します。");
+        localStorage.removeItem("englishTestProgress"); // 破損したデータを削除
+    }
+
     if (saved) {
         const confirmResume = await showCustomModal("前回の途中から再開しますか？", true);
         if (confirmResume) {
@@ -130,6 +137,7 @@ async function startTest() {
             levelDelay = 1000; // 1秒
             break;
     }
+    
 
     if (!gradeSet) {
         await showCustomModal("学年とセットを選んでください");
