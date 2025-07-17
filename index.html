@@ -22,7 +22,8 @@
     </div>
 
     <div id="setup" class="screen">
-        <img src="top.png" alt="アプリトップ画像" class="top-image">
+        <!-- top.png のパスを images/top.png に変更 -->
+        <img src="images/top.png" alt="アプリトップ画像" class="top-image" onerror="this.onerror=null;this.src='https://placehold.co/300x200/cccccc/333333?text=Image+Not+Found';">
         
         <div class="setting-item">
             <label for="test-date">検査日:</label>
@@ -97,7 +98,8 @@
 
     <div id="quiz" class="screen" style="display:none;">
         <div id="question-box">
-            <img id="question-image" src="" alt="問題画像" class="question-image">
+            <!-- 画像が見つからない場合のフォールバックを追加 -->
+            <img id="question-image" src="" alt="問題画像" class="question-image" onerror="this.onerror=null;this.src='https://placehold.co/350x250/cccccc/333333?text=Image+Not+Found';">
             <div id="text-A" class="question-text"></div>
             <div id="text-B" class="question-text"></div>
             <div class="button-group">
