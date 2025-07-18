@@ -2,71 +2,71 @@
     {
         "image": "01.png",
         "A": "Hello.",
-        "B": "How are you?"
+        "B": "Hello."
     },
     {
         "image": "02.png",
-        "A": "I'm fine, thank you.",
-        "B": "And you?"
+        "A": "I'm Sachiko.",
+        "B": "I'm John."
     },
     {
         "image": "03.png",
-        "A": "What's your name?",
-        "B": "My name is Alex."
+        "A": "Nice to meet you.",
+        "B": "Nice to meet you ,too."
     },
     {
         "image": "04.png",
-        "A": "Nice to meet you.",
-        "B": "Nice to meet you, too."
+        "A": "How are you?",
+        "B": "I'm fine."
     },
     {
         "image": "05.png",
-        "A": "Good morning.",
-        "B": "Good afternoon."
+        "A": "Do you like sports?",
+        "B": "Yes,I do."
     },
     {
         "image": "06.png",
-        "A": "Good evening.",
-        "B": "Good night."
+        "A": "What soprts do you like?",
+        "B": "I like soccer."
     },
     {
         "image": "07.png",
-        "A": "See you later.",
-        "B": "Bye-bye."
+        "A": "What's this?",
+        "B": "It's a banana."
     },
     {
         "image": "08.png",
-        "A": "Thank you.",
-        "B": "You're welcome."
+        "A": "How many bananas?",
+        "B": "Two bananas."
     },
     {
         "image": "09.png",
-        "A": "Excuse me.",
-        "B": "I'm sorry."
+        "A": "Do you have a dog?",
+        "B": "No,I don't."
     },
     {
         "image": "10.png",
-        "A": "Please.",
-        "B": "Here you are."
+        "A": "Do you want a dog?",
+        "B": "Yes,I do."
     },
     {
         "image": "11.png",
-        "A": "Yes.",
-        "B": "No."
+        "A": "What do you want?",
+        "B": "Vanilla,please."
     },
     {
         "image": "12.png",
-        "A": "What is this?",
-        "B": "It's a pen."
+        "A": "This is for you. Here you are.",
+        "B": "Thank you."
     },
     {
         "image": "13.png",
-        "A": "How old are you?",
-        "B": "I'm ten years old."
+        "A": "Who are you?",
+        "B": "I'm a monkey."
     },
     {
         "image": "14.png",
-        "A": "Where are you from?",
-        "B": "I'm from Japan."
+        "A": "Bye.",
+        "B": "Bye."
     }
 ]
