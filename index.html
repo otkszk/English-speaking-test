@@ -26,12 +26,12 @@
         <img src="images/top.png" alt="アプリトップ画像" class="top-image" onerror="this.onerror=null;this.src='https://placehold.co/300x200/cccccc/333333?text=Image+Not+Found';">
         
         <div class="setting-item">
-            <label for="test-date">検査日:</label>
-            <input type="date" id="test-date">
+            <label for="test-date">検査日:<input type="date" id="test-date"></label>
+            
         </div>
         
         <div class="setting-item">
-            <label for="grade-set">学年とセット:</label>
+            <label for="grade-set">学年とセット:
             <select id="grade-set">
                 <option value="">選んでください</option>
                 <option value="list03">３年</option>
@@ -39,32 +39,36 @@
                 <option value="list05">５年</option>
                 <option value="list06">６年</option>
             </select>
+        </label>
         </div>
         
         <div class="setting-item">
-            <label for="mode">モード:</label>
-            <select id="mode">
+            <label for="mode">モード:
+                <select id="mode">
                 <option value="normal">通常モード</option>
                 <option value="random">ランダムモード</option>
             </select>
+        </label>
         </div>
 
         <div class="setting-item">
-            <label for="level">レベル:</label>
+            <label for="level">レベル:
             <select id="level">
                 <option value="normal">ふつう (2秒)</option>
                 <option value="easy">やさしい (3秒)</option>
                 <option value="hard">むずかしい (1秒)</option>
             </select>
+         </label>
         </div>
         
         <div class="setting-item">
-            <label for="voice-select">音声の種類:</label>
+            <label for="voice-select">音声の種類:
             <select id="voice-select"></select>
+            </label>
         </div>
         
         <div class="setting-item">
-            <label for="font-select">フォント:</label>
+            <label for="font-select">フォント:
             <select id="font-select">
                 <option value="sans-serif">ゴシック体 (sans-serif)</option>
                 <option value="'Kosugi Maru', sans-serif">Kosugi Maru</option>
@@ -72,10 +76,11 @@
                 <option value="'Hina Mincho', serif">Hina Mincho</option>
                 <option value="'Shippori Mincho', serif">Shippori Mincho</option>
             </select>
+            </label>
         </div>
         
         <div class="setting-item">
-            <label for="color-picker">文字の色:</label>
+            <label for="color-picker">文字の色:
             <select id="color-picker">
                 <option value="#333333">黒</option>
                 <option value="#e74c3c">赤</option>
@@ -88,6 +93,7 @@
                 <option value="#7f8c8d">グレー</option>
                 <option value="#000000">真っ黒</option>
             </select>
+        </label>
         </div>
         
         <div class="button-group">
