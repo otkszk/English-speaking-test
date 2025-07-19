@@ -1,0 +1,67 @@
+[
+  {
+    "image": "401.png",
+    "A": "What's your name?",
+    "B": "I'm John."
+  },
+  {
+    "image": "402.png",
+    "A": "How is the weather?",
+    "B": "It's sunny."
+  },
+  {
+    "image": "403.png",
+    "A": "What time is it?",
+    "B": "It's ten o'clock."
+  },
+  {
+    "image": "404.png",
+    "A": "Let's play soccer.",
+    "B": "Yes,let's."
+  },
+  {
+    "image": "405.png",
+    "A": "What day is it?",
+    "B": "It's Wednesday."
+  },
+  {
+    "image": "406.png",
+    "A": "Do you like Friday?",
+    "B": "Yes,I do."
+  },
+  {
+    "image": "407.png",
+    "A": "Why?",
+    "B": "Because I have English class."
+  },
+  {
+    "image": "408.png",
+    "A": "What day do you like(the best)?",
+    "B": "I  like Sunday."
+  },
+  {
+    "image": "409.png",
+    "A": "Do you have a basketball?",
+    "B": "No,I don't."
+  },
+  {
+    "image": "410.png",
+    "A": "Do you want a basketball?",
+    "B": "Yes,I do."
+  },
+  {
+    "image": "411.png",
+    "A": "What's your favorite season?",
+    "B": "My favorite season is spring."
+  },
+  {
+    "image": "412.png",
+    "A": "Why?",
+    "B": "Because It's warm."
+  },
+  {
+    "image": "413.png",
+    "A": "This is my favorite place.",
+    "B": "I like the gym."
+  }
+]
