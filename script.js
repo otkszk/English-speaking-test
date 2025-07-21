@@ -5,7 +5,6 @@ let missed = []; // 間違えた問題のリスト
 let selectedVoice = null; // 選択された音声
 let levelDelay = 2000; // レベルに応じた表示遅延時間 (デフォルト: ふつう2秒)
 let speechUtterance = null; // SpeechSynthesisUtterance オブジェクトを保持
-let currentMode = "normal"; // 現在のモード
 
 // ページ読み込み時に実行される初期設定
 document.addEventListener('DOMContentLoaded', () => {
@@ -119,9 +118,6 @@ async function startTest() {
     const voiceSelect = document.getElementById("voice-select");
     selectedVoice = speechSynthesis.getVoices().find(v => v.name === voiceSelect.value);
 
-    // 現在のモードを保存
-    currentMode = mode;
-
     // レベルに応じた遅延時間を設定
     switch (level) {
         case 'easy':
@@ -153,6 +149,9 @@ async function startTest() {
         })
         .then(data => {
             questions = data;
+            if (mode === "random") {
+                questions = shuffleArray(questions);
+            }
             current = 0;
             correct = 0;
             missed = [];
@@ -173,7 +172,6 @@ function loadSavedProgress(saved) {
     correct = saved.correct;
     missed = saved.missed;
     questions = saved.questions;
-    currentMode = saved.mode; // モードを復元
     document.getElementById("test-date").value = saved.date || "";
     document.getElementById("grade-set").value = saved.gradeSet;
     document.getElementById("mode").value = saved.mode;
@@ -198,7 +196,7 @@ function saveCurrentProgress() {
         missed,
         questions,
         gradeSet: document.getElementById("grade-set").value,
-        mode: currentMode, // currentModeを使用
+        mode: document.getElementById("mode").value,
         date: document.getElementById("test-date").value,
         level: document.getElementById("level").value,
         levelDelay: levelDelay,
@@ -225,85 +223,28 @@ function showQuestion() {
     questionImage.src = `images/${question.image}`;
     questionImage.style.display = 'block'; // 画像を表示
 
-    // AとBのテキストは非表示にしておく
+    // AとBのテキストは非表示にしておく（内容は空にして、スペースを確保）
     textA.textContent = "";
     textB.textContent = "";
-    textA.style.display = 'none';
-    textB.style.display = 'none';
+    textA.style.visibility = 'hidden'; // 空間は確保するがテキストは見えない状態
+    textB.style.visibility = 'hidden';
 
     applyFontAndColor(); // フォントと色を適用
     updateProgressBar(); // 進捗バーを更新
 
-    // モードに応じて表示を変える
-    switch (currentMode) {
-        case 'normal':
-            showNormalMode(question);
-            break;
-        case 'a-speech':
-            showASpeechMode(question);
-            break;
-        case 'b-speech':
-            showBSpeechMode(question);
-            break;
-    }
-}
-
-// 通常モード（従来の処理）
-function showNormalMode(question) {
-    const textA = document.getElementById("text-A");
-    const textB = document.getElementById("text-B");
-
     // レベルに応じた秒数後にAとBのテキストと音声を再生
     setTimeout(() => {
         textA.textContent = question.A;
-        textA.style.display = 'block'; // Aを表示
+        textA.style.visibility = 'visible'; // Aを表示
         speak(question.A, () => {
             // Aの音声再生後にBのテキストと音声を再生
             setTimeout(() => {
                 textB.textContent = question.B;
-                textB.style.display = 'block'; // Bを表示
+                textB.style.visibility = 'visible'; // Bを表示
                 speak(question.B);
             }, 500); // AとBの音声の間に少し間隔を空ける
         });
     }, levelDelay);
-}
-
-// Aスピーチモード
-function showASpeechMode(question) {
-    const textA = document.getElementById("text-A");
-    const textB = document.getElementById("text-B");
-
-    // レベルに応じた秒数後にAとBの文字を表示し、音声も同時に再生
-    setTimeout(() => {
-        textA.textContent = question.A;
-        textA.style.display = 'block';
-        textB.textContent = question.B;
-        textB.style.display = 'block';
-        // AとBを続けて音声再生
-        speak(question.A, () => {
-            setTimeout(() => {
-                speak(question.B);
-            }, 300); // 少し間隔を空ける
-        });
-    }, levelDelay);
-}
-
-// Bスピーチモード
-function showBSpeechMode(question) {
-    const textA = document.getElementById("text-A");
-    const textB = document.getElementById("text-B");
-
-    // 最初にAの文字を表示し、音声も同時に再生
-    textA.textContent = question.A;
-    textA.style.display = 'block';
-    speak(question.A, () => {
-        // Aの音声再生後、レベルに応じた秒数後にBのテキストと音声を再生
-        setTimeout(() => {
-            textB.textContent = question.B;
-            textB.style.display = 'block';
-            speak(question.B);
-        }, levelDelay);
-    });
 }
 
 // ユーザーが回答したときの処理
