@@ -44,8 +44,7 @@
             <label for="mode">モード:</label>
             <select id="mode">
                 <option value="normal">通常モード</option>
-                <option value="a-speech">Aスピーチ</option>
-                <option value="b-speech">Bスピーチ</option>
+                <option value="random">ランダムモード</option>
             </select>
         </div>
 
@@ -99,14 +98,23 @@
     <div id="quiz" class="screen" style="display:none;">
         <div id="question-box">
             <img id="question-image" src="" alt="問題画像" class="question-image">
-            <div id="text-A" class="question-text"></div>
-            <div id="text-B" class="question-text"></div>
-            <div class="button-group">
-                <button onclick="answer(true)">○ 読めた</button>
-                <button onclick="answer(false)">× 読めなかった</button>
+            
+            <div class="question-text-container">
+                <div id="text-A" class="question-text"></div>
+                <div id="text-B" class="question-text"></div>
             </div>
-            <progress id="progress-bar" value="0" max="100"></progress>
-            <button onclick="interruptTest()">中断する</button>
+            
+            <div class="quiz-button-area">
+                <div class="button-group">
+                    <button onclick="answer(true)">○ 読めた</button>
+                    <button onclick="answer(false)">× 読めなかった</button>
+                </div>
+            </div>
+            
+            <div class="quiz-bottom-area">
+                <progress id="progress-bar" value="0" max="100"></progress>
+                <button onclick="interruptTest()">中断する</button>
+            </div>
         </div>
     </div>
 
